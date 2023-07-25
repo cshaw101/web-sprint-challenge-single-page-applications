@@ -1,0 +1,8 @@
+import react from "react";
+
+const Homepage = () => {
+    return null
+}
+
+
+export default Homepage;
