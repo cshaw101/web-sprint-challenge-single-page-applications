@@ -5,6 +5,7 @@ import Homepage from "./pages/Homepage";
 import Order from "./pages/Order";
 
 
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ const App = () => {
       <nav>
         <Link to="/">Home</Link>&nbsp; 
         <Link to="order">Order</Link>&nbsp;
+        <Link to="confirmation">Confirmation</Link>
         
       </nav>
       <Routes>
@@ -19,7 +21,14 @@ const App = () => {
         <Route path="order" element={<Order />} />
         <Route path="Confirmation" element={<Confirmation />} />
       </Routes>
+
+      
+
+
     </BrowserRouter>
+
+
+
   );
 };
 export default App;
