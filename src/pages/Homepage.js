@@ -7,12 +7,13 @@ const navigate = useNavigate();
 
 const toOrder= () => {
     // 👇️ navigate to /
-    navigate('/order');
+    navigate('/pizza');
   };
 
     return (
         <div>
-            <button onClick={toOrder} className="order-pizza">Order Pizza</button>
+            <h1>Homepage</h1>
+            <button onClick={toOrder} id="order-pizza">Order Pizza</button>
         </div>
     )
 }
