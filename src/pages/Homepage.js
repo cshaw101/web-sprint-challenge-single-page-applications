@@ -1,7 +1,20 @@
 import react from "react";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
-    return null
+
+const navigate = useNavigate();
+
+const toOrder= () => {
+    // 👇️ navigate to /
+    navigate('/order');
+  };
+
+    return (
+        <div>
+            <button onClick={toOrder} className="order-pizza">Order Pizza</button>
+        </div>
+    )
 }
 
 

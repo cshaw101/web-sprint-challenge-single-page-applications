@@ -1,7 +1,12 @@
 import react from "react";
 
+
 const Confirmation = () => {
-    return null
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
 
