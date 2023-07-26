@@ -59,6 +59,12 @@ const Order = () => {
       </label>
 
     </div>
+
+    <label>
+      Special Instructions:
+      <input type="text" id="special-text" />
+    </label>
+      <button>Add to Order</button>
     </form>
     </div>
   )
