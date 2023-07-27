@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Order = (props) => {
   const {
@@ -19,6 +20,18 @@ const Order = (props) => {
     event.preventDefault();
     submit(values);
   };
+
+
+ const navigate = useNavigate();
+
+const toConfirm = () => {
+  if (disabled === false) {
+    navigate('/confirmation')
+  }else {
+    console.log('whoops')
+  }
+  
+}
 
   return (
     <form id="pizza-form" onSubmit={handleSubmit}>
@@ -85,7 +98,7 @@ const Order = (props) => {
           <input type="text" id="special-text" name="specialInstructions" value={values.specialInstructions} onChange={handleChange} />
         </label>
 
-        <button disabled={disabled} name="addToOrder" id="order-button">Add to Order</button>
+        <button onClick={toConfirm} navigate={navigate} disabled={disabled} name="addToOrder" id="order-button">Add to Order</button>
       </div>
     </form>
   );
