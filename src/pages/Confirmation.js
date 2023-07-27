@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Order from "./Order";
 
-// Styled components for the layout
 const Container = styled.div`
   display: flex;
   flex-direction: column;

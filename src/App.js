@@ -68,8 +68,6 @@ useEffect(() => {
 return (
   <div className="appWrapper">
   
-
-  {/* Conditionally render the Navbar only on the Homepage */}
   <Routes>
     <Route path="/" element={<Homepage />} />
     <Route path="pizza" element={<Order values={formvalues} submit={addNewOrder} errors={formErrors} change={onChange} disabled={disabled} />} />
