@@ -4,6 +4,53 @@ import styled from 'styled-components';
 
 
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Increase the gap between elements */
+  margin-top: 40px;
+  width: 400px; /* Set the desired width of the form */
+  margin: 0 auto; /* Center the form horizontally */
+`;
+
+const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px; /* Increase the gap between input and label */
+`;
+
+const CheckboxContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* Increase the gap between checkboxes */
+  width: 100%;
+`;
+
+const CheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+`;
+
+const Button = styled.button`
+  padding: 16px 32px;
+  background-color: red;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content; 
+  align-self: center; 
+  margin-top: 10px;
+  margin-left:60px;
+
+`;
+
+
+
 const Order = (props) => {
 const {
   values,
@@ -33,7 +80,7 @@ const toConfirm = () => {
 }
 
 return (
-  <form id="pizza-form" onSubmit={handleSubmit}>
+  <Form id="pizza-form" onSubmit={handleSubmit}>
     <div className="formContainer">
       <div className='errors'>
         <div>{errors.name}</div>
@@ -41,11 +88,12 @@ return (
         <div>{errors.pizzaDropdownValue}</div>
       </div>
 
-      <label>Enter Name:
+      <Label>
+        Enter Name For Order:
         <input type="text" id="name-input" name="name" value={values.name} onChange={handleChange} />
-      </label>
-      <br />
-      <label htmlFor="pizzaDropdown">
+      </Label>
+
+      <Label htmlFor="pizzaDropdown">
         Pizza Size:
         <select id="size-dropdown" onChange={handleChange} name="pizzaDropdownValue" value={values.pizzaDropdownValue}>
           <option value="option">--Select Option--</option>
@@ -53,56 +101,53 @@ return (
           <option value="medium">12"</option>
           <option value="large">16"</option>
         </select>
-      </label>
+      </Label>
 
-      <div>
-      <div>
-    <label>
-      Pepperoni
-    <input type="checkbox" id="pepperoni" name="pepperoni" checked={values.pepperoni} onChange={handleChange}/>
-    </label>
-    <label>
-      Sausage
-    <input type="checkbox" id="sausage" name="sausage" checked={values.sausage}  onChange={handleChange}/>
-    </label>
-    <label>
-      Pineapple
-    <input type="checkbox" id="pineapple" name="pineapple" checked={values.pineapple} onChange={handleChange}/>
-    </label>
-    <label>
-      Mushrooms
-    <input type="checkbox" id="mushrooms" name="mushrooms" checked={values.mushrooms} onChange={handleChange}/>
-    </label>
-    <label>
-      Bacon
-    <input type="checkbox" id="bacon" name="bacon" checked={values.bacon}  onChange={handleChange}/>
-    </label>
-    <label>
-      Extra Cheese
-    <input type="checkbox" id="extra-cheese" name="extraCheese" checked={values.extraCheese} onChange={handleChange}/>
-    </label>
-    <label>
-      Green Peppers
-    <input type="checkbox" id="green-peppers" name="greenPeppers" checked={values.greenPeppers} onChange={handleChange} />
-    </label>
-    <label>
-      Banana Peppers
-    <input type="checkbox" id="banana-peppers" name="bananaPeppers" checked={values.bananaPeppers} onChange={handleChange} />
-    </label>
-  </div>
-      </div>
+      <CheckboxContainer>
+        <CheckboxLabel>
+          Pepperoni
+          <input type="checkbox" id="pepperoni" name="pepperoni" checked={values.pepperoni} onChange={handleChange}/>
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Sausage
+          <input type="checkbox" id="sausage" name="sausage" checked={values.sausage} onChange={handleChange}/>
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Pineapple
+          <input type="checkbox" id="pineapple" name="pineapple" checked={values.pineapple} onChange={handleChange}/>
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Mushrooms
+          <input type="checkbox" id="mushrooms" name="mushrooms" checked={values.mushrooms} onChange={handleChange}/>
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Bacon
+          <input type="checkbox" id="bacon" name="bacon" checked={values.bacon} onChange={handleChange}/>
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Extra Cheese
+          <input type="checkbox" id="extra-cheese" name="extraCheese" checked={values.extraCheese} onChange={handleChange}/>
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Green Peppers
+          <input type="checkbox" id="green-peppers" name="greenPeppers" checked={values.greenPeppers} onChange={handleChange} />
+        </CheckboxLabel>
+        <CheckboxLabel>
+          Banana Peppers
+          <input type="checkbox" id="banana-peppers" name="bananaPeppers" checked={values.bananaPeppers} onChange={handleChange} />
+        </CheckboxLabel>
+        
+      </CheckboxContainer>
 
-      <label>
+      <Label>
         Special Instructions:
         <input type="text" id="special-text" name="specialInstructions" value={values.specialInstructions} onChange={handleChange} />
-      </label>
+      </Label>
 
-      <button onClick={toConfirm} navigate={navigate} disabled={disabled} name="addToOrder" id="order-button">Add to Order</button>
+      <Button onClick={toConfirm} disabled={disabled} name="addToOrder" id="order-button">Add to Order</Button>
     </div>
-  </form>
+  </Form>
 );
 };
 
 export default Order;
-
-
